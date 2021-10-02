@@ -6,22 +6,22 @@ import javax.validation.constraints.Size;
 
 public class NovoUsuarioRequest {
 
-    @NotBlank
+    @NotBlank(message = "{name.not.blank}")
     private String nome;
 
-    @NotBlank
-    @Size(max = 11)
+    @NotBlank(message = "{cpf.not.blank}")
+    @Size(max = 11, message = "{cpf.max.size}")
     private String cpf;
 
-    @NotBlank
+    @NotBlank(message = "{address.not.blank}")
     private String endereco;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "{email.not.blank}")
+    @Email(message = "{email.not.valid}")
     private String email;
 
-    @NotBlank
-    @Size(max = 13)
+    @NotBlank(message = "{phone.not.blank}")
+    @Size(min = 8, max = 13, message = "{phone.max.size}")
     private String telefone;
 
     public NovoUsuarioRequest(String nome, String cpf, String endereco, String email, String telefone) {

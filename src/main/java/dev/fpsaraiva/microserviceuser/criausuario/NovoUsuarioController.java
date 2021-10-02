@@ -18,7 +18,9 @@ public class NovoUsuarioController {
         NovoUsuario novoUsuario = request.paraUsuario();
 
         usuarioRepository.save(novoUsuario);
+        //TODO: log de criação do usuário
 
+        //TODO: retornar location + response objeto
         return request.toString();
     }
 }
