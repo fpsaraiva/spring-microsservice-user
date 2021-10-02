@@ -1,14 +1,9 @@
 package dev.fpsaraiva.microserviceuser.criausuario;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "user")
-public class NovoUsuario {
+public class NovoUsuarioResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private	String nome;
     private	String cpf;
@@ -17,13 +12,14 @@ public class NovoUsuario {
     private	String telefone;
     private LocalDateTime dataCadastro;
 
-    public NovoUsuario(String nome, String cpf, String endereco, String email, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
-        this.email = email;
-        this.telefone = telefone;
-        this.dataCadastro = LocalDateTime.now();
+    public NovoUsuarioResponse(NovoUsuario usuario) {
+        this.id = usuario.getId();
+        this.nome = usuario.getNome();
+        this.cpf = usuario.getCpf();
+        this.endereco = usuario.getEndereco();
+        this.email = usuario.getEmail();
+        this.telefone = usuario.getTelefone();
+        this.dataCadastro = usuario.getDataCadastro();
     }
 
     public Long getId() {
