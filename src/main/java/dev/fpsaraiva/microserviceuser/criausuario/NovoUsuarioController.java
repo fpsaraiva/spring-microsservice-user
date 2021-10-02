@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class NovoUsuarioController {
 
@@ -12,7 +14,7 @@ public class NovoUsuarioController {
     private UsuarioRepository usuarioRepository;
 
     @PostMapping("/api/usuario")
-    public String criar(@RequestBody NovoUsuarioRequest request) {
+    public String criar(@RequestBody @Valid NovoUsuarioRequest request) {
         NovoUsuario novoUsuario = request.paraUsuario();
 
         usuarioRepository.save(novoUsuario);
