@@ -1,9 +1,7 @@
 package dev.fpsaraiva.microserviceuser.listausuarios;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.data.domain.Page;
 
 public class UsuarioResponse {
 
@@ -13,12 +11,12 @@ public class UsuarioResponse {
     private	String email;
     private	String telefone;
 
-    public UsuarioResponse(String nome, String cpf, String endereco, String email, String telefone) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
-        this.email = email;
-        this.telefone = telefone;
+    public UsuarioResponse(Usuario usuario) {
+        this.nome = usuario.getNome();
+        this.cpf = usuario.getCpf();
+        this.endereco = usuario.getEndereco();
+        this.email = usuario.getEmail();
+        this.telefone = usuario.getTelefone();
     }
 
     public String getNome() {
@@ -40,10 +38,8 @@ public class UsuarioResponse {
     public String getTelefone() {
         return telefone;
     }
-    
-    public static List<UsuarioResponse> converterEmResposta(List<Usuario> usuarios) {
-        return usuarios.stream()
-                .map(usuario -> new UsuarioResponse(usuario.getNome(), usuario.getCpf(), usuario.getEndereco(),
-                        usuario.getEmail(), usuario.getTelefone())).collect(Collectors.toList());
+
+    public static Page<UsuarioResponse> toList(Page<Usuario> page) {
+        return page.map(UsuarioResponse::new);
     }
 }

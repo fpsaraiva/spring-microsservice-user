@@ -3,10 +3,13 @@ package dev.fpsaraiva.microserviceuser.listausuarios;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class ListaUsuariosController {
@@ -15,9 +18,9 @@ public class ListaUsuariosController {
     private UsuarioRepository usuarioRepository;
 
     @GetMapping("/api/usuarios")
-    public List<UsuarioResponse> lista() {
-        List<Usuario> usuariosCadastrados =  usuarioRepository.findAll();
+    public ResponseEntity<?> lista(@PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable page) {
+        Page<Usuario> usuariosCadastrados =  usuarioRepository.findAll(page);
 
-        return UsuarioResponse.converterEmResposta(usuariosCadastrados);
+        return ResponseEntity.ok(UsuarioResponse.toList(usuariosCadastrados));
     }
 }
