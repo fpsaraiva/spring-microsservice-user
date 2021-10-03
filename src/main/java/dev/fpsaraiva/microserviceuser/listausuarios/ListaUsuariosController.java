@@ -21,6 +21,6 @@ public class ListaUsuariosController {
     public ResponseEntity<?> lista(@PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 5) Pageable page) {
         Page<Usuario> usuariosCadastrados =  usuarioRepository.findAll(page);
 
-        return ResponseEntity.ok(UsuarioResponse.toList(usuariosCadastrados));
+        return ResponseEntity.ok(UsuarioResponse.toList(usuariosCadastrados).getContent());
     }
 }
