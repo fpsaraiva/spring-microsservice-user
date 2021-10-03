@@ -1,6 +1,8 @@
 package dev.fpsaraiva.microserviceuser.criausuario;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.fpsaraiva.microserviceuser.entity.Usuario;
+import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -31,7 +33,7 @@ public class NovoUsuarioControllerTest {
     public void deveCriarNovoUsuarioComSucesso() throws Exception {
         NovoUsuarioRequest usuario_1 = new NovoUsuarioRequest("Fernando", "00011122233", "Rua das Flores",
                 "fernando@fpsaraiva.dev", "33334444");
-        NovoUsuario novoUsuario = usuario_1.paraUsuario();
+        Usuario novoUsuario = usuario_1.paraUsuario();
 
         Mockito.when(usuarioRepository.save(novoUsuario)).thenReturn(novoUsuario);
 
@@ -51,7 +53,7 @@ public class NovoUsuarioControllerTest {
     public void deveNaoCriarUsuarioComNomeEmBranco() throws Exception {
         NovoUsuarioRequest usuario_1 = new NovoUsuarioRequest("", "00011122233", "Rua das Flores",
                 "fernando@fpsaraiva.dev", "33334444");
-        NovoUsuario novoUsuario = usuario_1.paraUsuario();
+        Usuario novoUsuario = usuario_1.paraUsuario();
 
         Mockito.when(usuarioRepository.save(novoUsuario)).thenReturn(novoUsuario);
 

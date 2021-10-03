@@ -1,11 +1,11 @@
-package dev.fpsaraiva.microserviceuser.criausuario;
+package dev.fpsaraiva.microserviceuser.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user")
-public class NovoUsuario {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,11 @@ public class NovoUsuario {
     private	String telefone;
     private LocalDateTime dataCadastro;
 
-    public NovoUsuario(String nome, String cpf, String endereco, String email, String telefone) {
+    @Deprecated
+    public Usuario() {
+    }
+
+    public Usuario(String nome, String cpf, String endereco, String email, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;

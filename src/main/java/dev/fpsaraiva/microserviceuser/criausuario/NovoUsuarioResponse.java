@@ -1,5 +1,7 @@
 package dev.fpsaraiva.microserviceuser.criausuario;
 
+import dev.fpsaraiva.microserviceuser.entity.Usuario;
+
 import java.time.LocalDateTime;
 
 public class NovoUsuarioResponse {
@@ -12,7 +14,7 @@ public class NovoUsuarioResponse {
     private	String telefone;
     private LocalDateTime dataCadastro;
 
-    public NovoUsuarioResponse(NovoUsuario usuario) {
+    public NovoUsuarioResponse(Usuario usuario) {
         this.id = usuario.getId();
         this.nome = usuario.getNome();
         this.cpf = usuario.getCpf();

@@ -1,5 +1,7 @@
 package dev.fpsaraiva.microserviceuser.criausuario;
 
+import dev.fpsaraiva.microserviceuser.entity.Usuario;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -52,7 +54,7 @@ public class NovoUsuarioRequest {
         return telefone;
     }
 
-    public NovoUsuario paraUsuario() {
-        return new NovoUsuario(nome, cpf, endereco, email, telefone);
+    public Usuario paraUsuario() {
+        return new Usuario(nome, cpf, endereco, email, telefone);
     }
 }
