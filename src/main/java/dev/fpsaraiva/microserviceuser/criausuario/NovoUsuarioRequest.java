@@ -32,15 +32,24 @@ public class NovoUsuarioRequest {
         this.telefone = telefone;
     }
 
-    @Override
-    public String toString() {
-        return "NovoUsuarioRequest{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
-                '}';
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefone() {
+        return telefone;
     }
 
     public NovoUsuario paraUsuario() {
