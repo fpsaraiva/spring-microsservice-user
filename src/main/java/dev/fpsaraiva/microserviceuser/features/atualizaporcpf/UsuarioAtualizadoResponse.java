@@ -1,9 +1,8 @@
-package dev.fpsaraiva.microserviceuser.features.listausuarios;
+package dev.fpsaraiva.microserviceuser.features.atualizaporcpf;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
-import org.springframework.data.domain.Page;
 
-public class UsuarioResponse {
+public class UsuarioAtualizadoResponse {
 
     private	String nome;
     private	String cpf;
@@ -11,7 +10,7 @@ public class UsuarioResponse {
     private	String email;
     private	String telefone;
 
-    public UsuarioResponse(Usuario usuario) {
+    public UsuarioAtualizadoResponse(Usuario usuario) {
         this.nome = usuario.getNome();
         this.cpf = usuario.getCpf();
         this.endereco = usuario.getEndereco();
@@ -37,9 +36,5 @@ public class UsuarioResponse {
 
     public String getTelefone() {
         return telefone;
-    }
-
-    public static Page<UsuarioResponse> toList(Page<Usuario> page) {
-        return page.map(UsuarioResponse::new);
     }
 }

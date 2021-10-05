@@ -1,5 +1,6 @@
 package dev.fpsaraiva.microserviceuser.features.listausuarios;
 
+import dev.fpsaraiva.microserviceuser.dto.UsuarioResponse;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;

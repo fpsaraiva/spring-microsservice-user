@@ -1,7 +1,7 @@
 package dev.fpsaraiva.microserviceuser.features.buscaporcpf;
 
+import dev.fpsaraiva.microserviceuser.dto.UsuarioResponse;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
-import dev.fpsaraiva.microserviceuser.features.listausuarios.UsuarioResponse;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
