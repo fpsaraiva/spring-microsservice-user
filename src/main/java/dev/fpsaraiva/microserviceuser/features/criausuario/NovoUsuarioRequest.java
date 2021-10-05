@@ -1,6 +1,7 @@
 package dev.fpsaraiva.microserviceuser.features.criausuario;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
+import dev.fpsaraiva.microserviceuser.validacoes.ValorUnico;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +14,7 @@ public class NovoUsuarioRequest {
 
     @NotBlank(message = "{cpf.not.blank}")
     @Size(max = 11, message = "{cpf.max.size}")
+    @ValorUnico(domainClass = Usuario.class, fieldName = "cpf", message = "ERRO: CPF já cadastrado no sistema.")
     private String cpf;
 
     @NotBlank(message = "{address.not.blank}")
