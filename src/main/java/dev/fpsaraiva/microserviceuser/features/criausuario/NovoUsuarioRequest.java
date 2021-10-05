@@ -22,6 +22,7 @@ public class NovoUsuarioRequest {
 
     @NotBlank(message = "{email.not.blank}")
     @Email(message = "{email.not.valid}")
+    @ValorUnico(domainClass = Usuario.class, fieldName = "email", message = "ERRO: e-mail já cadastrado no sistema.")
     private String email;
 
     @NotBlank(message = "{phone.not.blank}")
