@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.listausuarios;
+package dev.fpsaraiva.microserviceuser.features.listausuarios;
 
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;

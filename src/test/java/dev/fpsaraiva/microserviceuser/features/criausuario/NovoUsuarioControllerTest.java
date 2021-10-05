@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.criausuario;
+package dev.fpsaraiva.microserviceuser.features.criausuario;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;

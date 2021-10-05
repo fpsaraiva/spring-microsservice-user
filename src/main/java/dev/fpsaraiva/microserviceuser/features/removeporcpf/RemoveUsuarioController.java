@@ -1,32 +1,38 @@
-package dev.fpsaraiva.microserviceuser.buscaporcpf;
+package dev.fpsaraiva.microserviceuser.features.removeporcpf;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
-import dev.fpsaraiva.microserviceuser.listausuarios.UsuarioResponse;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
 @RestController
-public class BuscaUsuarioPorCpf {
+public class RemoveUsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping("/api/usuario/{cpf}")
-    public ResponseEntity<?> buscaPorId(@PathVariable String cpf) {
+    private final Logger logger = LoggerFactory.getLogger(RemoveUsuarioController.class);
+
+    @DeleteMapping("/api/usuario/{cpf}")
+    public ResponseEntity<?> removePorId(@PathVariable String cpf) {
         Optional<Usuario> usuarioBuscado = usuarioRepository.findByCpf(cpf);
 
         if(usuarioBuscado.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        UsuarioResponse usuario = new UsuarioResponse(usuarioBuscado.get());
+        Usuario usuario = usuarioBuscado.get();
+        usuarioRepository.delete(usuario);
+        logger.info("Usuário 'id={}' removido com SUCESSO.", usuario.getId());
 
-        return ResponseEntity.ok(usuario);
+        return ResponseEntity.ok().build();
     }
+
 }

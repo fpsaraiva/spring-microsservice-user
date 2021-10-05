@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.criausuario;
+package dev.fpsaraiva.microserviceuser.features.criausuario;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 
