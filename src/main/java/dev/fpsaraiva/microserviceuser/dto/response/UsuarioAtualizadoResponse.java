@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.features.atualizaporcpf;
+package dev.fpsaraiva.microserviceuser.dto.response;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 

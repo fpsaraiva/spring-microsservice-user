@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.features.atualizaporcpf;
+package dev.fpsaraiva.microserviceuser.dto.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

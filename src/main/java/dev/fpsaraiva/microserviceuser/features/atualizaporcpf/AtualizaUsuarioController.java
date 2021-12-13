@@ -1,5 +1,7 @@
 package dev.fpsaraiva.microserviceuser.features.atualizaporcpf;
 
+import dev.fpsaraiva.microserviceuser.dto.request.AtualizaUsuarioRequest;
+import dev.fpsaraiva.microserviceuser.dto.response.UsuarioAtualizadoResponse;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class AtualizaUsuarioController {
     @PutMapping("/api/usuario/{id}")
     @Transactional
     public ResponseEntity<UsuarioAtualizadoResponse> atualizaPorId(@PathVariable Long id,
-                                           @RequestBody @Valid AtualizaUsuarioRequest request) {
+                                                                   @RequestBody @Valid AtualizaUsuarioRequest request) {
         Optional<Usuario> usuarioBuscado = usuarioRepository.findById(id);
         Usuario usuario = usuarioBuscado.get();
 

@@ -1,4 +1,4 @@
-package dev.fpsaraiva.microserviceuser.features.criausuario;
+package dev.fpsaraiva.microserviceuser.dto.request;
 
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 import dev.fpsaraiva.microserviceuser.validacoes.ValorUnico;

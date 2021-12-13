@@ -1,5 +1,7 @@
 package dev.fpsaraiva.microserviceuser.features.criausuario;
 
+import dev.fpsaraiva.microserviceuser.dto.request.NovoUsuarioRequest;
+import dev.fpsaraiva.microserviceuser.dto.response.NovoUsuarioResponse;
 import dev.fpsaraiva.microserviceuser.entity.Usuario;
 import dev.fpsaraiva.microserviceuser.repository.UsuarioRepository;
 import org.slf4j.Logger;
