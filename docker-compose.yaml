@@ -27,3 +27,8 @@ services:
 volumes:
   users-volume:
   pgadmin-users-volume:
+
+networks:
+  default:
+    external:
+      name: microservice-back-java
